@@ -1,0 +1,13 @@
+---
+environments:
+  - name: acceptance
+    provider: ecs-fargate
+  - name: production
+    provider: ecs-fargate
+service:
+    acceptance:
+      disabled: true
+    production:
+      disabled: true
+extensions:
+  - url: backend-service
