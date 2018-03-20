@@ -1,7 +1,14 @@
 ---
 environments:
   - name: acceptance
-    provider: ecs-fargate
+    cluster:
+      desiredCapacity: 15
+      instanceType: c4.8xlarge
+      keyName: brent-isengard-us-east-1
+      sshAllow: 0.0.0.0/0
+      minSize: 15
+      maxSize: 20
+    # provider: ecs-fargate
   - name: production
     provider: ecs-fargate
 service:
