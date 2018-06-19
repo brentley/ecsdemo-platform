@@ -3,21 +3,21 @@ environments:
   - name: acceptance
     cluster:
       desiredCapacity: 3
-      instanceType: c4.8xlarge
+      instanceType: c4.2xlarge
       keyName: brent-isengard-us-east-1
       sshAllow: 0.0.0.0/0
       minSize: 3
       maxSize: 20
-    # provider: ecs-fargate
+    provider: ecs
   - name: production
     cluster:
       desiredCapacity: 3
-      instanceType: c4.8xlarge
+      instanceType: c4.2xlarge
       keyName: brent-isengard-us-east-1
       sshAllow: 0.0.0.0/0
       minSize: 3
       maxSize: 20
-    # provider: ecs-fargate
+    provider: ecs
 service:
     acceptance:
       disabled: true
