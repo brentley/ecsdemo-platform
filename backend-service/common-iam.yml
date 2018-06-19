@@ -3,16 +3,6 @@ Resources:
   CloudFormationRole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName:
-        Fn::Sub: ${Namespace}-cloudformation-common-${AWS::Region}
-      AssumeRolePolicyDocument:
-        Statement:
-        - Effect: Allow
-          Principal:
-            Service:
-            - cloudformation.amazonaws.com
-          Action:
-          - sts:AssumeRole
       Path: "/"
       Policies:
         - PolicyName: update-route53-additional
