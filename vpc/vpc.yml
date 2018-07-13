@@ -1,21 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @brjmc Sign out
-63
-399 59 stelligent/mu
- Code  Issues 70  Pull requests 3  Projects 1  Wiki  Insights
-mu/templates/assets/vpc.yml
-b4a80bc  on Dec 6, 2017
-@cplee cplee add support for fargate as an environment provider
-     
-693 lines (687 sloc)  18.7 KB
----
 AWSTemplateFormatVersion: '2010-09-09'
 Description: MU VPC with network resources managed by mu
 Parameters:
