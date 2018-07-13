@@ -17,3 +17,12 @@ Resources:
               - route53:ListQueryLoggingConfigs
               Resource: '*'
               Effect: Allow
+
+        - PolicyName: allocate-ec2-instances
+          PolicyDocument:
+            Version: '2018-07-17'
+            Statement:
+            - Action:
+              - ec2:ModifyInstanceAttribute
+              Resource: '*'
+              Effect: Allow
