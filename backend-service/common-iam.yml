@@ -24,5 +24,6 @@ Resources:
             Statement:
             - Action:
               - ec2:ModifyInstanceAttribute
+              - ec2:ReplaceRoute
               Resource: '*'
               Effect: Allow
