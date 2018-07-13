@@ -200,7 +200,7 @@ Resources:
       InternetGatewayId: !Ref InternetGateway
 
   ### NAT Networking
-  NatAZ1:
+  NatImage:
     DependsOn: VPCInternetGateway
     Type: AWS::EC2::Instance
     Properties:
@@ -350,7 +350,7 @@ Resources:
     Properties:
       RouteTableId: !Ref InstanceRouteTable
       DestinationCidrBlock: 0.0.0.0/0
-      InstanceId: !Ref NatAZ1
+      InstanceId: !Ref NatImage
   InstanceSubnetAZ1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Condition: HasInstanceSubnetAZ1
