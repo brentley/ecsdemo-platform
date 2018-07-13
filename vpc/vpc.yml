@@ -204,7 +204,6 @@ Resources:
     DependsOn: VPCInternetGateway
     Type: AWS::EC2::Instance
     Properties:
-      AllocationId: Fn::GetAtt EipAZ1.AllocationId
       SubnetId: !Ref NatSubnetAZ1
       SourceDestCheck: false
       ImageId: ami-980554e7
