@@ -213,10 +213,10 @@ Resources:
         Value: !Sub ${AWS::StackName}-nat-image
       NetworkInterfaces:
       - AssociatePublicIpAddress: true
-          DeviceIndex: 0
-          GroupSet:
-            - Ref: NatSG
-          SubnetId:
+        DeviceIndex: 0
+        GroupSet:
+          - Ref: NatSG
+        SubnetId:
             Ref: NatSubnetAZ1
 
   NatSG:
