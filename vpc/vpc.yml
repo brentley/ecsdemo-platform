@@ -208,9 +208,45 @@ Resources:
       SourceDestCheck: false
       ImageId: ami-980554e7
       InstanceType: t2.micro
+      Tags:
+      - Key: Name
+        Value: !Sub ${AWS::StackName}-nat-image
+      NetworkInterfaces:
+      - AssociatePublicIpAddress: "true"
+          DeviceIndex: "0"
+          GroupSet:
+            - Ref: NatSG
+          SubnetId:
+            Ref: NatSubnetAZ1
+
+  NatSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !Ref VPC
+      GroupDescription: Nat Instance Security Group
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '22'
+        ToPort: '22'
+        CidrIp: !Ref SshAllow
+      - IpProtocol: tcp
+        FromPort: '443'
+        ToPort: '443'
+        CidrIp: !Ref SshAllow
+      SecurityGroupEgress:
+      - IpProtocol: 'tcp'
+        FromPort: '80'
+        ToPort: '80'
+        CidrIp: 0.0.0.0/0
+        - IpProtocol: 'tcp'
+        FromPort: '443'
+        ToPort: '443'
+        CidrIp: 0.0.0.0/0
+
   EipAZ1:
     Type: AWS::EC2::EIP
     Properties:
+      InstanceId: !Ref NatImage
       Domain: vpc
   NatSubnetAZ1:
     Type: AWS::EC2::Subnet
@@ -239,6 +275,7 @@ Resources:
   NatDefaultRoute:
     Type: AWS::EC2::Route
     Properties:
+      InstanceId: !Ref NatImage
       RouteTableId: !Ref NatRouteTable
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId: !Ref InternetGateway
