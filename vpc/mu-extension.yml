@@ -1,0 +1,4 @@
+name: vpc            # name of extension
+version: '1.0'          # version of extension
+
+templateUpdateMode: replace
