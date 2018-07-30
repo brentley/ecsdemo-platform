@@ -15,5 +15,6 @@ Resources:
               - route53:DeleteHostedZone
               - route53:UpdateHostedZoneComment
               - route53:ListQueryLoggingConfigs
+              - iam:CreateServiceLinkedRole 
               Resource: '*'
               Effect: Allow
