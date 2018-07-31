@@ -1,0 +1,13 @@
+---
+Resources:
+  DnsBackend:
+    Type: "AWS::Route53::HostedZone"
+    Properties:
+      Name: "internal.service"
+      VPCs:
+        -
+          VPCRegion:
+            Fn::Sub: ${AWS::Region}
+          VPCId:
+            Fn::ImportValue:
+              Fn::Sub: ${VpcId}
