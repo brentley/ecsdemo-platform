@@ -1,0 +1,8 @@
+name: internal-alb
+version: 1.0
+
+templateUpdateMode: merge
+
+# Note: the filename must match the asset being extended.
+# see https://github.com/stelligent/mu/tree/develop/templates/assets for
+# filenames.

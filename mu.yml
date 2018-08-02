@@ -10,4 +10,5 @@ service:
     production:
       disabled: true
 extensions:
-  - url: backend-service
+  - url: custom-iam-policy
+  - url: internal-alb

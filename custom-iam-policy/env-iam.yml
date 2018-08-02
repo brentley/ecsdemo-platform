@@ -1,0 +1,21 @@
+---
+Resources:
+  CloudFormationRoleAddlPolicy:
+    Type: AWS::IAM::Policy
+    Properties: 
+      PolicyName: 
+        Fn::Sub: ${Namespace}-update-route53-additional-${EnvironmentName}
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Action:
+          - route53:CreateHostedZone
+          - route53:GetHostedZone
+          - route53:DeleteHostedZone
+          - route53:UpdateHostedZoneComment
+          - route53:ListQueryLoggingConfigs
+          - iam:CreateServiceLinkedRole 
+          Resource: '*'
+          Effect: Allow
+      Roles:
+      - Fn::Sub: ${Namespace}-cloudformation-common-${AWS::Region}
