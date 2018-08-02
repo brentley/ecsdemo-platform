@@ -1,7 +1,26 @@
 ---
 Resources:
+  CloudFormationRoleAddlPolicy:
+    Type: AWS::IAM::Policy
+    Properties: 
+      PolicyName: 
+        Fn::Sub: ${Namespace}-${EnvironmentName}-internal-alb
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Action:
+          - route53:CreateHostedZone
+          - route53:GetHostedZone
+          - route53:DeleteHostedZone
+          - route53:UpdateHostedZoneComment
+          - route53:ListQueryLoggingConfigs
+          Resource: '*'
+          Effect: Allow
+      Roles:
+      - Fn::Sub: ${Namespace}-cloudformation-common-${AWS::Region}
   DnsBackend:
     Type: "AWS::Route53::HostedZone"
+    DependsOn: CloudFormationRoleAddlPolicy
     Properties:
       Name: "internal.service"
       VPCs:
@@ -13,6 +32,7 @@ Resources:
               Fn::Sub: ${VpcId}
   BackendLB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    DependsOn: CloudFormationRoleAddlPolicy
     Properties:
       Scheme: internal
       SecurityGroups:
