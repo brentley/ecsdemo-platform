@@ -5,6 +5,7 @@ environments:
   - name: production
     provider: ecs-fargate
 service:
+  pipeline:
     acceptance:
       disabled: true
     production:
