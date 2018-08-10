@@ -9,6 +9,3 @@ service:
       disabled: true
     production:
       disabled: true
-extensions:
-  - url: custom-iam-policy
-  - url: internal-alb
