@@ -1,4 +1,4 @@
-name: custom-iam-policy
+name: backend-service
 version: 1.0
 
 templateUpdateMode: merge
