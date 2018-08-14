@@ -23,9 +23,9 @@ mu env term production
 
 echo "================================"
 echo "Beginning ecr repo delete at $(date)"
-aws ecr delete-repository --repository-nam ${MU_NAMESPACE}-ecsdemo-frontend --force
-aws ecr delete-repository --repository-nam ${MU_NAMESPACE}-ecsdemo-nodejs --force
-aws ecr delete-repository --repository-nam ${MU_NAMESPACE}-ecsdemo-crystal --force
+aws ecr delete-repository --repository-nam ${MU_NAMESPACE}-ecsdemo-frontend --force || true
+aws ecr delete-repository --repository-nam ${MU_NAMESPACE}-ecsdemo-nodejs --force || true
+aws ecr delete-repository --repository-nam ${MU_NAMESPACE}-ecsdemo-crystal --force ||true
 
 echo "================================"
 echo "Beginning s3 bucket delete at $(date)"
