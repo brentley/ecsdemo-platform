@@ -1,6 +1,15 @@
 ---
 environments:
-  - name: acceptance
-    provider: ecs-fargate
-  - name: production
+  - name: frontend
+    provider: ecs
+    cluster:
+      desiredCapacity: 3
+      minSize: 3
+      maxSize: 15
+      targetCPUReservation: 60
+      targetMemoryReservation: 60
+      instanceType: m5.2xlarge
+      keyName: brents-macbook
+      sshAllow: 0.0.0.0/0
+  - name: crystal
     provider: ecs-fargate
