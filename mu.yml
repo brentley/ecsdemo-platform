@@ -9,9 +9,10 @@ environments:
       targetCPUReservation: 60
       targetMemoryReservation: 60
       instanceType: m5.2xlarge
-      keyName: brents-macbook
+      keyName: demo
       sshAllow: 0.0.0.0/0
   - name: crystal
     provider: ecs-fargate
     cluster:
-      keyName: brents-macbook
+      keyName: demo
+      sshAllow: 0.0.0.0/0
