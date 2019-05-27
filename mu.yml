@@ -16,3 +16,9 @@ environments:
     cluster:
       keyName: demo
       sshAllow: 0.0.0.0/0
+
+parameters:
+  'demo-vpc-frontend':
+    BastionInstanceType: t3.xlarge
+  'demo-vpc-crystal':
+    BastionInstanceType: t3.xlarge
