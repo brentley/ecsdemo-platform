@@ -13,3 +13,5 @@ environments:
       sshAllow: 0.0.0.0/0
   - name: crystal
     provider: ecs-fargate
+    cluster:
+      keyName: brents-macbook
